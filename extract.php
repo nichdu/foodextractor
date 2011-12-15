@@ -80,6 +80,15 @@
 					$temp = preg_replace('/[0-9],[0-9]{2} .\/[0-9],[0-9]{2}/', '', $temp);
 //					$temp = htmlentities($temp);
 					$temp = preg_replace('/^\r\n|\r|\n$/', ' ', $temp);
+					
+					$temp = str_replace('ä', '&auml;', $temp);
+					$temp = str_replace('Ä', '&Auml;', $temp);
+					$temp = str_replace('ö', '&ouml;', $temp);
+					$temp = str_replace('Ö', '&Ouml;', $temp);
+					$temp = str_replace('ü', '&uuml;', $temp);
+					$temp = str_replace('Ü', '&Uuml;', $temp);
+					$temp = str_replace('ß', '&szlig;', $temp);
+					
 					$essen[$menID][$j][$i]['essen'] = $temp;
 					$essen[$menID][$j][$i]['student'] = $student[0];
 					$essen[$menID][$j][$i]['mitarbeiter'] = $mitarbeiter[0];
