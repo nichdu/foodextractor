@@ -8,6 +8,10 @@
 	$essen = array();
 	$essen['week'] = $week;
 	
+	
+	// ID fuer Mensa generieren
+	$menID = 0;
+	
 	// Durch alle Mensen iterieren
 	foreach ($mensen as $mensa => $url)
 	{
@@ -17,7 +21,8 @@
 		// Tabelle mit Speiseplan finden
 		$essenTable = $html->find('table', 1);
 		
-		$essen[$mensa] = array();
+		$essen[$menID] = array();
+		$essen[$menID]['name'] = $mensa;
 		// Arrays fuer Wochentage anlegen
 		for ($k=1;$k<=5;$k++)
 		{
@@ -62,6 +67,7 @@
 				$j++;
 			}
 		}
+		$menID++;
 	}
 	
 	// Array in Datei speichern
