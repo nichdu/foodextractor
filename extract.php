@@ -29,7 +29,7 @@
 		// Arrays fuer Wochentage anlegen
 		for ($k=1;$k<=5;$k++)
 		{
-			$essen[$k] = array();
+			$essen[$menID][$k] = array();
 		}
 		
 		// Durch Tabellenzeilen iterieren (verschiedene Essen)
@@ -52,8 +52,8 @@
 				{
 					for ($k=1;$k<=5;$k++)
 					{
-						$essen[$mensa][$k][$i] = array();
-						$essen[$mensa][$k][$i]['type'] = $td->plaintext;
+						$essen[$menID][$k][$i] = array();
+						$essen[$menID][$k][$i]['type'] = $td->plaintext;
 					}
 				}
 				else
@@ -67,7 +67,7 @@
 					
 //					$temp = htmlentities($temp);
 					$temp = preg_replace('\r\n|\r|\n', ' ', $temp);
-					$essen[$mensa][$j][$i]['essen'] = $temp;
+					$essen[$menID][$j][$i]['essen'] = $temp;
 				}
 				$j++;
 			}
