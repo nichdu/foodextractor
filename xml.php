@@ -86,14 +86,14 @@
 				echo "<$key>\n";
 				foreach ($v as $id => $essen)
 				{
-					if ($essen['essen'] == "" || $essen['essen'] == '&nbsp;')
+					if (trim($essen['essen']) == "")
 					{
 						continue;
 					}
 					echo '<food>';
 					echo '<type><id>' . $id . '</id>';
 					echo '<name>' . $essen['type'] . '</name></type>' . "\n";
-					echo '<desc>' . $essen['essen'] . "</desc>\n";
+					echo '<desc>' . trim(mb_convert_encoding($essen['essen'], "UTF-8", "ISO-8859-1")) . "</desc>\n";
 					echo '<student>' . $essen['student'] . "</student>\n";
 					echo '<mitarbeiter>' . $essen['mitarbeiter'] . "</mitarbeiter>\n";
 					echo '</food>'. "\n";
