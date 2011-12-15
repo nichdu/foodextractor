@@ -50,6 +50,11 @@
 				// erste Spalte ist Benennung des Essens
 				if ($j == 0) 
 				{
+					if (preg_match('/^Bitte/',trim($td->plaintext)) == 1)
+					{
+						// Beilagensortiment soll kein Element werden, wirft Fehler
+						continue;
+					}
 					for ($k=1;$k<=5;$k++)
 					{
 						$essen[$menID][$k][$i] = array();
