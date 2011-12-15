@@ -93,7 +93,7 @@
 					echo '<food>';
 					echo '<type><id>' . $id . '</id>';
 					echo '<name>' . $essen['type'] . '</name></type>' . "\n";
-					echo '<desc>' . htmlentities(trim(mb_convert_encoding($essen['essen'], "UTF-8", "ISO-8859-1")), ENT_COMPAT | ENT_HTML401, "UTF-8") . "</desc>\n";
+					echo '<desc>' . trim(mb_convert_encoding($essen['essen'], "UTF-8", "ISO-8859-1")) . "</desc>\n";
 					echo '<student>' . $essen['student'] . "</student>\n";
 					echo '<mitarbeiter>' . $essen['mitarbeiter'] . "</mitarbeiter>\n";
 					echo '</food>'. "\n";
