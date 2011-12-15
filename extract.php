@@ -31,7 +31,7 @@
 			$essen[$k] = array();
 		}
 		
-		// Durch Tabellenzeilen iterieren
+		// Durch Tabellenzeilen iterieren (verschiedene Essen)
 		$i = 0;
 		foreach($essenTable->find('tr') as $tr)
 		{
@@ -42,7 +42,7 @@
 				continue;
 			}
 			
-			// Durch Spalten iterieren
+			// Durch Spalten iterieren (Wochentage)
 			$j = 0;
 			foreach ($tr->find('td') as $td)
 			{
