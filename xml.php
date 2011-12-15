@@ -33,6 +33,11 @@
 		$menID = -1;
 	}
 	
+	if (!file_exists('essen/' . $week . '.ess')) 
+	{
+		die("<error>No data for $week available</error>");
+	}
+	
 	$essen = unserialize(file_get_contents('essen/' . $week . '.ess'));
 	
 	$e = array();
