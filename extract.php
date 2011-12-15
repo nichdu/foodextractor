@@ -31,7 +31,12 @@
 			}
 			else
 			{
-				$essen[$j][$i]['essen'] = strip_tags(str_replace("<br>","\n",$td->innertext));
+				$temp = str_replace("<br>","\n",$td->innertext);
+				$temp = str_replace("<img src=\"images/3.gif\">","\n(mit Schweinefleisch)",$temp);
+				$temp = str_replace("<img src=\"images/2.gif\">","\n(mit Alkohol)",$temp);
+				$temp = str_replace("<img src=\"images/1.gif\">","\n(fleischloses Gericht)",$temp);
+				$temp = strip_tags($temp);
+				$essen[$j][$i]['essen'] = $temp;
 			}
 			$j++;
 		}
