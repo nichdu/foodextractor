@@ -65,13 +65,15 @@
 				{
 					// essen der Wochentage in Array speichern, zuvor Textbeschreibungen einfuegen und 
 					// Zeilenumbrueche entfernen
+					$temp = $td->innertext;
 					$temp = str_replace("<img src=\"images/3.gif\">"," (mit Schweinefleisch)",$temp);
 					$temp = str_replace("<img src=\"images/2.gif\">"," (mit Alkohol)",$temp);
 					$temp = str_replace("<img src=\"images/1.gif\">"," (fleischloses Gericht)",$temp);
 					$temp = strip_tags($temp);
 					
 //					$temp = htmlentities($temp);
-					$temp = preg_replace('\r\n|\r|\n', ' ', $temp);
+					$temp = preg_replace('/^\r\n|\r|\n$/', ' ', $temp);
+					echo $temp;
 					$essen[$menID][$j][$i]['essen'] = $temp;
 				}
 				$j++;
