@@ -4,7 +4,6 @@
 	date_default_timezone_set('Europe/Berlin');
 	header("Content-type: text/xml;charset=UTF-8");
 	
-	$_GET['id'] = 13;
 	
 	ob_start();
 	echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
