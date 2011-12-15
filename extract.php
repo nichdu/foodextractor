@@ -1,4 +1,6 @@
 <?php
+	mb_internal_encoding("UTF-8"); 
+	ini_set('default_charset', 'UTF-8');
 	require_once 'simple_html_dom.php';
 	require_once 'mensen.php';
 	
@@ -61,6 +63,8 @@
 					$temp = str_replace("<img src=\"images/2.gif\">"," (mit Alkohol)",$temp);
 					$temp = str_replace("<img src=\"images/1.gif\">"," (fleischloses Gericht)",$temp);
 					$temp = strip_tags($temp);
+					
+//					$temp = htmlentities($temp);
 					$temp = preg_replace('\r\n|\r|\n', ' ', $temp);
 					$essen[$mensa][$j][$i]['essen'] = $temp;
 				}
@@ -73,6 +77,6 @@
 	// Array in Datei speichern
 //	$essen = str_replace("Â","",$essen);
 	$ser = serialize($essen);
-	$ser = mb_convert_encoding($ser, "UTF-8");
+//	$ser = mb_convert_encoding($ser, "UTF-8");
 	file_put_contents('essen/' . $week . '.ess', $ser);
 ?>
