@@ -73,7 +73,7 @@
 					
 					// Preise herausfiltern
 					preg_match('/[0-9],[0-9]{2} €/', $temp, $student);
-					preg_match('/[0-9],[0-9]{2}/', $temp, $mitarbeiter);
+					preg_match('/\/[0-9],[0-9]{2}/', $temp, $mitarbeiter);
 					$temp = preg_replace('/^[0-9],[0-9]{2} €\/[0-9],[0-9]{2}$/', '', $temp);
 //					$temp = htmlentities($temp);
 					$temp = preg_replace('/^\r\n|\r|\n$/', ' ', $temp);
