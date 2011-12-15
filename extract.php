@@ -1,4 +1,8 @@
 <?php
+	if ($_SERVER['REMOTE_ADDR'] !== 'http://85.214.78.121')
+	{
+		die(header('HTTP/1.1 403 Forbidden'));
+	}
 	mb_internal_encoding("UTF-8"); 
 	ini_set('default_charset', 'UTF-8');
 	date_default_timezone_set('Europe/Berlin');
