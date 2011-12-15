@@ -44,10 +44,16 @@
 					$temp = str_replace("<img src=\"images/2.gif\">","\n(mit Alkohol)",$temp);
 					$temp = str_replace("<img src=\"images/1.gif\">","\n(fleischloses Gericht)",$temp);
 					$temp = strip_tags($temp);
+					$temp = preg_replace('\r\n|\r|\n', ' ', $temp);
 					$essen[$mensa][$j][$i]['essen'] = $temp;
 				}
 				$j++;
 			}
 		}
 	}
+	
+//	$essen = str_replace("Â","",$essen);
+	$ser = serialize($essen);
+	$ser = mb_convert_encoding($ser, "UTF-8");
+	file_put_contents('essen/' . $week . '.ess', $ser);
 ?>
