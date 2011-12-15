@@ -4,6 +4,7 @@
 	
 	$week = date('W');
 	$essen = array();
+	$essen['week'] = $week;
 	
 	foreach ($mensen as $mensa => $url)
 	{
