@@ -2,7 +2,8 @@
 	require_once 'simple_html_dom.php';
 	
 	$week = date('W');
-	$html = file_get_html('http://www.studierendenwerk-hamburg.de/essen/woche.php?haus=Philosophenturm&&kw=' . $week);
+	$html = file_get_html('http://www.studierendenwerk-hamburg.de/essen/' 
+			. 'woche.php?haus=Philosophenturm&&kw=' . $week);
 	$essenTable = $html->find('table', 1);
 	
 	$essen = array();
