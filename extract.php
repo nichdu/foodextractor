@@ -2,33 +2,44 @@
 	require_once 'simple_html_dom.php';
 	require_once 'mensen.php';
 	
+	
+	// Wochennummer setzen
 	$week = date('W');
 	$essen = array();
 	$essen['week'] = $week;
 	
+	// Durch alle Mensen iterieren
 	foreach ($mensen as $mensa => $url)
 	{
+		// Speiseplan-HTML laden
 		$html = file_get_html('http://www.studierendenwerk-hamburg.de/essen/' 
 				. 'woche.php?haus=' . $url . '&&kw=' . $week);
+		// Tabelle mit Speiseplan finden
 		$essenTable = $html->find('table', 1);
 		
 		$essen[$mensa] = array();
+		// Arrays fuer Wochentage anlegen
 		for ($k=1;$k<=5;$k++)
 		{
 			$essen[$k] = array();
 		}
+		
+		// Durch Tabellenzeilen iterieren
 		$i = 0;
 		foreach($essenTable->find('tr') as $tr)
 		{
 			$i++;
+			// Zeilen 1 und 2 sind Wochentage bzw eine Leerzeile
 			if ($i < 3) 
 			{
 				continue;
 			}
 			
+			// Durch Spalten iterieren
 			$j = 0;
 			foreach ($tr->find('td') as $td)
 			{
+				// erste Spalte ist Benennung des Essens
 				if ($j == 0) 
 				{
 					for ($k=1;$k<=5;$k++)
@@ -39,10 +50,11 @@
 				}
 				else
 				{
-					$temp = str_replace("<br>","\n",$td->innertext);
-					$temp = str_replace("<img src=\"images/3.gif\">","\n(mit Schweinefleisch)",$temp);
-					$temp = str_replace("<img src=\"images/2.gif\">","\n(mit Alkohol)",$temp);
-					$temp = str_replace("<img src=\"images/1.gif\">","\n(fleischloses Gericht)",$temp);
+					// essen der Wochentage in Array speichern, zuvor Textbeschreibungen einfuegen und 
+					// Zeilenumbrueche entfernen
+					$temp = str_replace("<img src=\"images/3.gif\">"," (mit Schweinefleisch)",$temp);
+					$temp = str_replace("<img src=\"images/2.gif\">"," (mit Alkohol)",$temp);
+					$temp = str_replace("<img src=\"images/1.gif\">"," (fleischloses Gericht)",$temp);
 					$temp = strip_tags($temp);
 					$temp = preg_replace('\r\n|\r|\n', ' ', $temp);
 					$essen[$mensa][$j][$i]['essen'] = $temp;
@@ -52,6 +64,7 @@
 		}
 	}
 	
+	// Array in Datei speichern
 //	$essen = str_replace("Â","",$essen);
 	$ser = serialize($essen);
 	$ser = mb_convert_encoding($ser, "UTF-8");
