@@ -105,10 +105,10 @@
 	$out = ob_get_contents();
 	ob_end_clean();
 	
-	$out = str_replace('&auml', 'ä', $out);
-	$out = str_replace('&Auml', 'Ä', $out);
-	$out = str_replace('&ouml', 'ö', $out);
-	$out = str_replace('&Ouml', 'Ö', $out);
-	$out = str_replace('&uuml', 'Ü', $out);
-	$out = str_replace('&szlig', 'ß', $out);
+	$out = str_replace('&auml;', 'ä', $out);
+	$out = str_replace('&Auml;', 'Ä', $out);
+	$out = str_replace('&ouml;', 'ö', $out);
+	$out = str_replace('&Ouml;', 'Ö', $out);
+	$out = str_replace('&uuml;', 'Ü', $out);
+	$out = str_replace('&szlig;', 'ß', $out);
 	echo $out;
