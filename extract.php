@@ -1,6 +1,7 @@
 <?php
 	mb_internal_encoding("UTF-8"); 
 	ini_set('default_charset', 'UTF-8');
+	date_default_timezone_set('Europe/Berlin');
 	require_once 'simple_html_dom.php';
 	require_once 'mensen.php';
 	
