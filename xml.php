@@ -94,6 +94,8 @@
 					echo '<type><id>' . $id . '</id>';
 					echo '<name>' . $essen['type'] . '</name></type>' . "\n";
 					echo '<desc>' . $essen['essen'] . "</desc>\n";
+					echo '<student>' . $essen['student'] . "</student>\n";
+					echo '<mitarbeiter>' . $essen['mitarbeiter'] . "</mitarbeiter>\n";
 					echo '</food>'. "\n";
 				}
 				echo "</$key>\n";

@@ -71,10 +71,15 @@
 					$temp = str_replace("<img src=\"images/1.gif\">"," (fleischloses Gericht)",$temp);
 					$temp = strip_tags($temp);
 					
+					// Preise herausfiltern
+					preg_match('/[0-9],[0-9]{2} €/', $temp, $student);
+					preg_match('/[0-9],[0-9]{2}/', $temp, $mitarbeiter);
+					$temp = preg_replace('/^[0-9],[0-9]{2} €\/[0-9],[0-9]{2}$/', '', $temp);
 //					$temp = htmlentities($temp);
 					$temp = preg_replace('/^\r\n|\r|\n$/', ' ', $temp);
-					echo $temp;
 					$essen[$menID][$j][$i]['essen'] = $temp;
+					$essen[$menID][$j][$i]['student'] = $student[0];
+					$essen[$menID][$j][$i]['mitarbeiter'] = $mitarbeiter[0];
 				}
 				$j++;
 			}
