@@ -77,7 +77,7 @@
 					//echo $student[0] . "\n";
 					preg_match('/\/[0-9],[0-9]{2}/', $temp, $mitarbeiter);
 					$mitarbeiter[0] = preg_replace('/[^\d,]/', '', $mitarbeiter[0]);
-					$temp = preg_replace('/^[0-9],[0-9]{2} €\/[0-9],[0-9]{2}$/', '', $temp);
+					$temp = preg_replace('/[0-9],[0-9]{2} .\/[0-9],[0-9]{2}/', '', $temp);
 //					$temp = htmlentities($temp);
 					$temp = preg_replace('/^\r\n|\r|\n$/', ' ', $temp);
 					$essen[$menID][$j][$i]['essen'] = $temp;
