@@ -60,15 +60,15 @@
 			{
 				if ((trim($v3['essen']) == ''))
 				{
-					unset($a[$k][$k2][$k3]);
+					unset($e[$k][$k2][$k3]);
 				}
 				else
 				{
-					$a[$k][$k2][$k3]['essen'] = utf8_encode($v3['essen']);
+					$e[$k][$k2][$k3]['essen'] = utf8_encode($v3['essen']);
 				}
 			}
 		}
 	}
-	$b = json_encode($a);
+	$b = json_encode($e);
 	echo $b;
 ?>
