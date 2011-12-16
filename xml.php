@@ -35,7 +35,7 @@
 	
 	if (!file_exists('essen/' . $week . '.ess')) 
 	{
-		die("<error>No data for $week available</error>");
+		die("<error><id>1</id><textEN>No data for week $week available</textEN><textDE>Keine Daten für Woche $week verfügbar</textDE></error>");
 	}
 	
 	$essen = unserialize(file_get_contents('essen/' . $week . '.ess'));
