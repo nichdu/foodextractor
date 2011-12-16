@@ -37,6 +37,7 @@
 	if ($menID >= 0)
 	{
 		$e[$menID] = $essen[$menID];
+		$e['week'] = $week;
 	}
 	else
 	{
