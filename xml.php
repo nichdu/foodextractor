@@ -43,7 +43,14 @@
 	$e = array();
 	if ($menID >= 0)
 	{
-		$e[$menID] = $essen[$menID];
+		if ($menID <= 15)
+		{
+			$e[$menID] = $essen[$menID];
+		}
+		else
+		{
+			die("<error><id>2</id><textEN>No data for week $week available</textEN><textDE>Keine Daten für Woche $week verfügbar</textDE></error>");
+		}
 	}
 	else
 	{
