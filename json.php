@@ -15,8 +15,7 @@
 	
 	if (isset($_GET['id']))
 	{
-		preg_match('/^([0-9]|1[0-5])$/', $_GET['id'],$men);
-		$menID = $men[0];
+		$menID = $_GET['id'];
 	}
 	else
 	{
