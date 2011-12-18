@@ -54,9 +54,8 @@
 		$e = $essen;
 	}
 	
-	foreach ($a as $k => $v)
+	foreach ($e as $k => $v)
 	{
-		print('1. Schleife'.PHP_EOL);
 		if ($k === 'week')
 		{
 			continue;
