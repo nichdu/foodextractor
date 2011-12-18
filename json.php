@@ -46,6 +46,7 @@
 			$err = array('error' => array ( 'id' => 2,
 											'textDE' => utf8_encode("Keine Daten für angegebene Mensa-ID ($menID) vorhanden"),
 											'textEN' => "No data for mensa id $menID available"));
+			die(json_encode($err));
 		}
 	}
 	else
