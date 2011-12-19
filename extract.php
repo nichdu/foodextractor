@@ -1,5 +1,5 @@
 <?php
-	if ($_SERVER['REMOTE_ADDR'] !== 'http://85.214.78.121')
+	if ($_SERVER['REMOTE_ADDR'] !== '85.214.78.121')
 	{
 		die(header('HTTP/1.1 403 Forbidden'));
 	}
